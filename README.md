@@ -22,6 +22,7 @@ Name | Type | Description
 `scrollPercent` | Number | Sets where scrolling begins. A value of `5` will scroll up if the finger is in the top 5% of the FlatList container and scroll down in the bottom 5%. 
 `onMoveEnd` | Function | `({ data, to, from, row }) => void` Returns updated ordering of `data` 
 `onMoveBegin` | Function | `(index) => void` Called when row becomes active.
+`parentSrollViewOffset` | Number | If the draggable lives in a parent scroll view, this optional value will be considered in the measurement function. If you notice a jerky/jitter-ness when releasing the dragged item you might need to set this prop.
 
 ## Example
 

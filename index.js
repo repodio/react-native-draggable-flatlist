@@ -246,14 +246,14 @@ class SortableFlatList extends Component {
 
   measureItem = (index) => {
     const { activeRow } = this.state
-    const { horizontal } = this.props
+    const { horizontal, parentSrollViewOffset = 0 } = this.props
     // setTimeout required or else dimensions reported as 0
     !!this._refs[index] && setTimeout(() => {
       try {
         // Using stashed ref prevents measuring an unmounted componenet, which throws an error
         !!this._refs[index] && this._refs[index].measureInWindow(((x, y, width, height) => {
           if ((width || height) && activeRow === -1) {
-            const ypos = y + this._scrollOffset
+            const ypos = y + this._scrollOffset - parentSrollViewOffset;
             const xpos = x + this._scrollOffset
             const pos = horizontal ? xpos : ypos
             const size = horizontal ? width : height
